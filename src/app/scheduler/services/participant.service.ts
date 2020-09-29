@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Participant } from 'src/app/models/participant';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ParticipantService {
 
-  // temporary URL
-  private url: string = "http://localhost:8081/person/";
+  private url: string = `${environment.apiUrl}/person/`;
 
   constructor(private http: HttpClient) { }
 

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { TimeFrame } from 'src/app/models/time-frame';
 import { ScheduleParameters } from 'src/app/models/schedule-parameters';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { ScheduleParameters } from 'src/app/models/schedule-parameters';
 export class ScheduleService {
 
   // temporary URL
-  private url: string = "http://localhost:8081/schedule/";
+  private url: string = `${environment.apiUrl}/schedule/`;
 
   constructor(
     private http: HttpClient

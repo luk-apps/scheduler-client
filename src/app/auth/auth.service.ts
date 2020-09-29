@@ -4,13 +4,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AppUser } from '../models/app-user';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router'; 
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url: string = "http://localhost:8081/";
+  private url: string = environment.apiUrl;
   public currentUser: Observable<AppUser>;
   private currentUserSubject: BehaviorSubject<AppUser>;
 
@@ -20,7 +21,7 @@ export class AuthService {
    }
 
   login(username: string, password: string) {
-    return this.http.post<any>(this.url + 'login', { username: username, password: password }).pipe(
+    return this.http.post<any>(this.url + '/login', { username: username, password: password }).pipe(
       tap(res => {
         this.setSession(res);
         this.currentUserSubject.next(res);

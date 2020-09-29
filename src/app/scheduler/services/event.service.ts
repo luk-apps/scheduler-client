@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Event } from 'src/app/models/event';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class EventService {
 
   // temporary URL
-  private url: string = "http://localhost:8081/event/";
+  private url: string = `${environment.apiUrl}/event/`;
 
   constructor(private http: HttpClient) { }
 
