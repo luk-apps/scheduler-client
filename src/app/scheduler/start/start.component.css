@@ -1,0 +1,17 @@
+.paragraph {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#details {
+    margin-top: 30px;
+}
+
+.math-example {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

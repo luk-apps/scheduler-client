@@ -1,0 +1,30 @@
+.container {
+    padding: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.participants-table {
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    overflow: hidden;
+}
+
+ul.event-participants {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#table-empty {
+    margin-top: 20px;
+}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: "Inter", "Helvetica Neue", sans-serif; 
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 600px;
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #002642;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.content-table tbody tr:nth-last-of-type(even) {
+    background-color: #f7f7f4;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #4d647c;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+.calendar-container {
+    margin: 25px 0;
+}
+
+.required {
+    color: red;
+}
+
+.mat-tooltip {
+    font-size: 15px;
+}
+/* action buttons */
+
+.action-button{
+    font-size: 15px;
+    background-color:#53a3ee;
+    width:60px;
+    height:40px;
+    border-radius:20%;
+    background:#53a3ee;
+    border:none;
+    outline:none;
+    color:#FFF;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition:.3s;  
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-transform: uppercase;
+  }
+
+.action-button.next {
+    float: right;
+    margin-right: 20px;
+}
+
+.action-button.prev {
+    float: left;
+    margin-left: 20px;
+}
+  
+.alert {
+    padding: 3px;
+    font-size: 12px;
+    background-color: #ff4949;
+}
+
+/* Secondary menu */
+
+.secondary-menu {
+    overflow: hidden;
+    border-bottom: 2px solid #f3f3f3;
+}
+
+.secondary-menu a {
+    float: left;
+    color: 	#a8a8a8 !important;
+    border-bottom: 3px solid white;
+    text-align: center;
+    padding: 11px 14px;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 550;
+    transition: border-bottom 0.5s;
+}
+
+.secondary-menu span {
+    float: left;
+    color: 	#a8a8a8 !important;
+    border-bottom: 3px solid white;
+    text-align: center;
+    padding: 11px 14px;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 550;
+}
+
+.secondary-menu a:hover {
+    cursor: pointer;
+    border-bottom: 3px solid #53a3ee;
+    transition: border-bottom 0.5s;
+}

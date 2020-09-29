@@ -1,0 +1,21 @@
+<div class="background">
+  <div class="login-panel">
+    <div>
+      <h2 id="header">Login</h2>
+    </div>
+    <form [formGroup]="form">
+      <div class="form-field">
+        <label>Username</label>
+        <input class="form-control" name="username" formControlName="username">
+      </div>
+  
+      <div class="form-field">
+        <label>Password</label>
+        <input class="form-control" type="password" name="password" formControlName="password">
+      </div>
+      <div>
+        <button class="btn btn-primary" id="login-button" (click)="login()">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

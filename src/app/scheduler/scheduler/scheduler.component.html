@@ -1,0 +1,35 @@
+<nav>
+    <div class="sidebar">
+        <img class="logo" src="/assets/images/logo.png" alt="image">
+        <ul>
+            <li class="nav-item"><a class="nav-link" routerLink="start" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Start</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="participants" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Participants</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="events" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Events</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="generate_schedule" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Generate schedule</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="results" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Results</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="main-section">
+    <div class="navbar-top">
+        <a class="logout-button clickable" (click)="logout()">Log out</a>
+        <a>Logged in as <span class="username">{{loggedInUser}}</span></a>
+    </div>
+    <div id="container">
+        <div id="body">
+            <router-outlet></router-outlet>
+        </div>
+
+        <div id="footer">
+            <button *ngIf="previousButtonVisible()" (click)="goToPrevStage()" class="action-button prev">Prev</button>
+            <button *ngIf="nextButtonVisible()" (click)="goToNextStage()" class="action-button next">Next</button>
+        </div>
+    </div>
+
+</div>

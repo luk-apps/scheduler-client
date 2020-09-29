@@ -1,0 +1,63 @@
+<h1>Start</h1>
+
+<div id="introduction">
+    <h5>The process of generating schedules consists of 3 steps:</h5>
+
+    <p><b>Step 1: Define participants</b></p>
+    <p>In this step you have to create participants and set their availability by selecting time frames in the calendar.
+    </p>
+
+    <p><b>Step 2: Define events</b></p>
+    <p>Create events and assing participants to them.</p>
+
+    <p><b>Step 3: Define schedule parameters</b></p>
+    <p>Define final parameters for the algorithm and start generating.</p>
+
+</div>
+
+<h5>
+    <mat-icon>priority_high</mat-icon>Before starting there are <u class="clickable" (click)="showDetails();">few things
+        to keep in mind</u>
+</h5>
+
+<div [hidden]="!detailsVisible" id="details">
+    <div>
+        The algorithm is heavily based on combinatorics. It performs operations such as
+        finding combinations of an n-element set. If you are not familiar with this field of maths, these operations
+        sometimes produce
+        incredibly large numbers, to an extend that they might seem to be fake and unreal. Let's look at the example
+        below:
+        <br>
+        Let's say we defined 20 events that have to be scheduled one after the other in a row.
+        We want to find out how many ways we can arrange them. How do we do that?
+        <br>
+        We chose one of all 20 events to be the first one. There are 20 possible choices.
+    </div>
+    <div>
+        <img class="math-example" src="/assets/images/math1.png" alt="image">
+    </div>
+    <div>
+        If first element is chosen, there are 19 more elements left. So now we have 19 possibilities to choose the second
+    element. For now we have 20 * 19 possibilities.
+    </div>
+    <div>
+        <img class="math-example" src="/assets/images/math2.png" alt="image">
+    </div>
+    <div>
+        We repeat this step until we choose all of the elements. The result is:
+    </div>
+    <img class="math-example" src="/assets/images/math3.png" alt="image">
+    <div>
+        And... 20! is equal to... 2 432 902 008 176 640 000 possibilities.
+        <br>
+        To give you the idea how big this number is: if it was dollars and you lived 70 years, you could spend 1 101 323
+        292.63 dollars a second for your whole life.
+    </div>
+    
+
+    <div>
+        The conclusion is: use this tool wisely :) Some data might generate really big numbers of schedules. And remember that your computer might not have enough computing power to
+        perform some operations.
+    </div>
+
+</div>

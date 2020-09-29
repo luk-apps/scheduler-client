@@ -1,0 +1,20 @@
+<div>
+    <h1>Results</h1>
+</div>
+
+<div *ngIf="totalNumberOfResults > 0">
+    <h4>The algorithm has found {{totalNumberOfResults}} schedules</h4>
+    <div class="secondary-menu">
+        <a (click)="setPreviusResult()">Previous</a>
+        <span *ngIf="totalNumberOfResults > 0">Result number: {{currentIndex + 1}}</span>
+        <a (click)="setNextResult()">Next</a>
+    </div>
+
+    <div class="calendar-container">
+        <full-calendar [options]='calendarOptions'></full-calendar>
+    </div>
+</div>
+
+<div *ngIf="totalNumberOfResults == 0">
+    <h4>No results found...</h4>
+</div>
