@@ -3,6 +3,11 @@
     <div>
       <h2 id="header">Login</h2>
     </div>
+    <p>
+      <ngb-alert [type]="'primary'" [dismissible]="false">
+        For the purpose of demonstration login with username: <strong>'admin'</strong> and password: <strong>'password'</strong>
+      </ngb-alert>
+    </p>
     <form [formGroup]="form">
       <div class="form-field">
         <label>Username</label>
@@ -13,9 +18,15 @@
         <label>Password</label>
         <input class="form-control" type="password" name="password" formControlName="password">
       </div>
+
+      <ngb-alert [type]="'danger'" *ngIf="authenticationFailed" [dismissible]="false">
+        Authentication failed
+      </ngb-alert>
+
       <div>
         <button class="btn btn-primary" id="login-button" (click)="login()">Login</button>
       </div>
     </form>
+
   </div>
 </div>

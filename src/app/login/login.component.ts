@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  authenticationFailed: boolean;
 
   constructor(
     private authService: AuthService,
@@ -34,6 +35,9 @@ export class LoginComponent implements OnInit {
           .subscribe(
             (res) => {
               this.router.navigateByUrl('scheduler/start');
+            },
+            () => {
+              this.authenticationFailed = true;
             }
           );
       }
