@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/angular';
+import { EventDetailsService } from '../services/event-details.service';
 import { ResultsService } from '../services/results.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class ResultsComponent implements OnInit {
 
   currentIndex: number = 0;
   totalNumberOfResults = 0;
-  constructor(private resultsService: ResultsService) { }
+  constructor(private resultsService: ResultsService,
+    private eventDetailsService: EventDetailsService) { }
 
   ngOnInit(): void {
     if(this.resultsService.getResults().length > 0) {
@@ -55,26 +57,18 @@ export class ResultsComponent implements OnInit {
         start: new Date()
       },
     ]);
-
-    // nadpisuje eventy
-    // this.calendarOptions.events = [
-    //   {
-    //     id: 'b',
-    //     title: 'All-day event',
-    //     start: new Date()
-    //   },
-    // ]
   }
 
   setEvents(results: any) {
     var items = []
-    console.log(results.totalTime);
     results.eventsTimeFrames.forEach(element => {
       items.push({
-        id: element.event.name,
+        id: element.event.id,
         title: element.event.name,
         start: element.start,
-        end: element.end
+        end: element.end,
+        participants: element.event.participants,
+        durationInMinutes: element.event.durationInMinutes
       });
     });
     this.calendarOptions.events = items;
@@ -100,7 +94,7 @@ export class ResultsComponent implements OnInit {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    // TODO - display event data
+    this.eventDetailsService.show(clickInfo.event._def.title, clickInfo.event._def.extendedProps.durationInMinutes, clickInfo.event._def.extendedProps.participants);
   }
 
   handleEvents(events: EventApi[]) {

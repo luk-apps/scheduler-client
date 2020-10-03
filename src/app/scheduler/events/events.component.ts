@@ -7,6 +7,7 @@ import { ParticipantService } from '../services/participant.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ParticipantChecked } from 'src/app/models/participant-checked';
 import { ConfirmService } from '../services/confirm.service';
+import { EventDetailsService } from '../services/event-details.service';
 
 @Component({
   selector: 'app-events',
@@ -15,7 +16,7 @@ import { ConfirmService } from '../services/confirm.service';
 })
 export class EventsComponent implements OnInit {
 
-  public eventName: String;
+  public eventName: string;
   public durationInMinutes: number;
   public events: Event[] = [];
   public participants: Participant[] = [];
@@ -28,7 +29,8 @@ export class EventsComponent implements OnInit {
     public eventService: EventService,
     public participantService: ParticipantService,
     private modalService: NgbModal,
-    private confirmService: ConfirmService) { }
+    private confirmService: ConfirmService,
+    private eventDetailsService: EventDetailsService) { }
 
   ngOnInit(): void {
     this.getParticipants();
@@ -112,6 +114,10 @@ export class EventsComponent implements OnInit {
     else {
       this.checkList.forEach(p => p.checked = false);
     }
+  }
+
+  showDetails(event: Event) {
+    this.eventDetailsService.show(event.name, event.durationInMinutes, event.participants);
   }
 
   open(content) {
