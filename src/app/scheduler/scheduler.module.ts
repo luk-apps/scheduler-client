@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -35,7 +36,7 @@ FullCalendarModule.registerPlugins([
 
 
 @NgModule({
-  declarations: [ScheduleGeneratorComponent, ScheduleGeneratorComponent, EventsComponent, ParticipantsComponent, StartComponent, SchedulerComponent, ResultsComponent, DatesInputComponent, ConfirmComponent],
+  declarations: [ScheduleGeneratorComponent, ScheduleGeneratorComponent, EventsComponent, ParticipantsComponent, StartComponent, SchedulerComponent, ResultsComponent, DatesInputComponent, ConfirmComponent, EventDetailsComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
