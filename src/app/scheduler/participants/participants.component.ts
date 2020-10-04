@@ -59,7 +59,7 @@ export class ParticipantsComponent implements OnInit {
       this.firstName = res.person.firstName;
       this.lastName = res.person.lastName;
       this.selectedParticipant = participant;
-      res.principles.forEach(p => this.selectedTimeFrames.push(new TimeFrame(p.startDate, p.endDate)))
+      res.principles.forEach(p => this.selectedTimeFrames.push(new TimeFrame(new Date(p.startDate), new Date(p.endDate))))
       this.open(this.personModal);
     });
   }
@@ -75,6 +75,13 @@ export class ParticipantsComponent implements OnInit {
 
   receiveAddTimeFrameEvent($event) {
     this.selectedTimeFrames.push(new TimeFrame($event.start, $event.end));
+  }
+
+  receiveDeleteTimeFrameEvent($event) {
+    let range = this.selectedTimeFrames.find(timeFrame => 
+      timeFrame.start.getTime() == $event.start.getTime() && timeFrame.end.getTime() == $event.end.getTime()
+    )
+    this.selectedTimeFrames.splice(this.selectedTimeFrames.indexOf(range), 1);
   }
 
   save() {

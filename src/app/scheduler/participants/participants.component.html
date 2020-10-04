@@ -63,7 +63,7 @@
       </div>
 
       <h5>Drag and drop on calendar to add user's time availabilities. Click on time frame to delete</h5>
-      <app-dates-input [inputTimeFrames]="selectedTimeFrames" (addTimeFrameEvent)="receiveAddTimeFrameEvent($event)">
+      <app-dates-input [inputTimeFrames]="selectedTimeFrames" (addTimeFrameEvent)="receiveAddTimeFrameEvent($event)" (deleteTimeFrameEvent)="receiveDeleteTimeFrameEvent($event)">
       </app-dates-input>
     </div>
 

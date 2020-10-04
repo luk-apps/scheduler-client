@@ -21,6 +21,7 @@ export class DatesInputComponent implements OnInit {
   }
 
   @Output() addTimeFrameEvent = new EventEmitter<TimeFrame>();
+  @Output() deleteTimeFrameEvent = new EventEmitter<TimeFrame>();
   @Input() inputTimeFrames: any;
 
   calendarVisible = true;
@@ -37,6 +38,8 @@ export class DatesInputComponent implements OnInit {
     selectable: true,
     selectMirror: true,
     dayMaxEvents: true,
+    eventStartEditable: false,
+    eventDurationEditable: false,
     select: this.handleDateSelect.bind(this),
     eventClick: this.handleEventClick.bind(this),
     eventsSet: this.handleEvents.bind(this),
@@ -89,9 +92,16 @@ export class DatesInputComponent implements OnInit {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-      clickInfo.event.remove();
-    }
+    this.confirmService.confirm('Confirm', 'Do you want to delete this time frame?', 'Yes', 'Cancel')
+        .then((confirmed) => {
+          if (confirmed) {
+            clickInfo.event.remove();
+            let start = this.dateTimeService.getLocalTime(clickInfo.event._instance.range.start);
+            let end = this.dateTimeService.getLocalTime(clickInfo.event._instance.range.end);
+            this.deleteTimeFrameEvent.emit(new TimeFrame(start, end));
+          }
+        })
+        .catch(() => { });
   }
 
   handleEvents(events: EventApi[]) {
